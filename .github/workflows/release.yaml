@@ -62,6 +62,7 @@ jobs:
         with:
           path: ./release-artifacts
           pattern: sombra-*
+          merge-multiple: true
 
       - name: Release on GitHub
         uses: softprops/action-gh-release@v2
