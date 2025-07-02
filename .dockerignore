@@ -1,0 +1,13 @@
+api
+build
+legal
+licenses
+docker/local/run
+var
+.editorconfig
+*.env
+.gitignore
+links.txt
+README.md
+.git
+.idea
