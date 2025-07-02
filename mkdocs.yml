@@ -1,0 +1,41 @@
+site_name: sombra-cli
+site_url: https://sombra-cli.sombrahq.com/
+site_description: Project documentation with Markdown.
+site_author: SombraHQ
+
+repo_url: https://github.com/sombrahq/sombra-cli
+repo_name: sombrahq/sombra-cli
+edit_uri: edit/master/docs/
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - search.share
+    - navigation.footer
+    - content.action.edit
+
+plugins:
+  - search
+  - social
+  - offline
+
+nav:
+  - Home: index.md
+  - User Guide:
+      - User Guide: user-guide/index.md
+      - Installation: user-guide/installation.md
+      - Commands: user-guide/commands.md
+      - Sombra File: user-guide/sombra-file.md
+  - Templates:
+      - Start: sombra-templates/index.md
+      - Concepts: sombra-templates/concepts.md
+      - Start a Template: sombra-templates/start-a-template.md
+      - Best Practices: sombra-templates/best-practices.md
+  - Us:
+      - About: about.md
+      - Contact: contact.md
+
+copyright: Copyright &copy; 2025 Yunier Rojas García.
+

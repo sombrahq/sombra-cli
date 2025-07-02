@@ -1,0 +1,96 @@
+name: MiniPaaS Release
+
+on:
+  push:
+    tags:
+      - "*.*.*"
+
+env:
+  GO_VERSION: '1.23'
+  PY_VERSION: '3.x'
+
+jobs:
+
+  build-cli:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        goos: [ linux, windows, darwin ]
+        goarch: [ "386", amd64, arm64 ]
+        exclude:
+          - goarch: "386"
+            goos: darwin
+          - goarch: arm64
+            goos: windows
+        include:
+          - goos: darwin
+            os: macos-latest
+          - goos: linux
+            os: ubuntu-latest
+          - goos: windows
+            os: windows-latest
+            suffix: .exe
+    env:
+      GOOS: ${{ matrix.goos }}
+      GOARCH: ${{ matrix.goarch }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Install dependencies
+        run: go mod tidy
+
+      - name: Build CLI
+        run: make build WHAT=sombra
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: sombra-${{ matrix.goos }}-${{ matrix.goarch }}
+          path: build/sombra*
+
+  release:
+    runs-on: ubuntu-latest
+    needs: [ build-cli ]
+    permissions:
+      contents: write
+    steps:
+
+      - name: Download CLI artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./release-artifacts
+          pattern: sombra-*
+
+      - name: Release on GitHub
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ./release-artifacts/*
+
+  docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PY_VERSION }}
+
+      - name: Install mkdocs dependencies
+        run: |
+          pip install mkdocs-material
+          pip install mkdocs-social-plugin
+          pip install mkdocs-offline-plugin
+
+      - name: Build docs
+        run: mkdocs build
+
+      - name: Deploy docs
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
