@@ -7,7 +7,6 @@ on:
 
 env:
   GO_VERSION: '1.23'
-  PY_VERSION: '3.x'
 
 jobs:
 
@@ -68,29 +67,3 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: ./release-artifacts/*
-
-  docs:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: ${{ env.PY_VERSION }}
-
-      - name: Install mkdocs dependencies
-        run: |
-          pip install mkdocs-material
-          pip install mkdocs-social-plugin
-          pip install mkdocs-offline-plugin
-
-      - name: Build docs
-        run: mkdocs build
-
-      - name: Deploy docs
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
