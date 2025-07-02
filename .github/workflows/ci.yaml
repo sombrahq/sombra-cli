@@ -1,4 +1,4 @@
-name: Sombra CI
+name: sombra-cli CI
 
 on:
   pull_request:

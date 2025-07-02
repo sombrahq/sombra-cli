@@ -1,4 +1,4 @@
-name: MiniPaaS Release
+name: sombra-cli Release
 
 on:
   push:
