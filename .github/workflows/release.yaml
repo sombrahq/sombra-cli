@@ -3,7 +3,7 @@ name: sombra-cli Release
 on:
   push:
     tags:
-      - "*.*.*"
+      - "v*.*.*"
 
 env:
   GO_VERSION: '1.23'
@@ -63,10 +63,10 @@ jobs:
       - name: Build docs
         run: make build-docs
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+      - name: Upload static files as artifact
+        id: deployment
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
           path: site
 
   release:
