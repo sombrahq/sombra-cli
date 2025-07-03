@@ -41,8 +41,5 @@ jobs:
         with:
           python-version: ${{ env.PY_VERSION }}
 
-      - name: Install dependencies
-        run: pip install -r docs/requirements.txt
-
       - name: Validate docs
-        run: mkdocs build --strict
+        run: make build-docs
