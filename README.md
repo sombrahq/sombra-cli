@@ -40,7 +40,7 @@ cd sombra-cli
 make build WHAT=sombra
 ```
 
-See [Installation Guide](https://sombrahq.github.io/sombra-cli/user-guide/installation/) for more details.
+See [Installation Guide](https://sombrahq.github.io/sombra-cli/user-guide/installation.html) for more details.
 
 ---
 
@@ -88,15 +88,15 @@ Full docs available at 👉 [https://sombrahq.github.io/sombra-cli/](https://som
 
 Key topics:
 
-* [Installation](https://sombrahq.github.io/sombra-cli/user-guide/installation/)
-* [Creating Templates](https://sombrahq.github.io/sombra-cli/sombra-templates/start-a-template/)
-* [sombra.yaml Config](https://sombrahq.github.io/sombra-cli/user-guide/sombra-file/)
-* [Command Reference](https://sombrahq.github.io/sombra-cli/user-guide/commands/)
+* [Installation](https://sombrahq.github.io/sombra-cli/user-guide/installation.html)
+* [Creating Templates](https://sombrahq.github.io/sombra-cli/sombra-templates/start-a-template.html)
+* [sombra.yaml Config](https://sombrahq.github.io/sombra-cli/user-guide/sombra-file.html)
+* [Command Reference](https://sombrahq.github.io/sombra-cli/user-guide/commands.html)
 
 ---
 
 ## 🤝 Contributing
 
-Issues and PRs welcome! Start with the [Contact page](https://sombrahq.github.io/sombra-cli/contact/) or open an [Issue](https://github.com/sombrahq/sombra-cli/issues).
+Issues and PRs welcome! Start with the [Contact page](https://sombrahq.github.io/sombra-cli/contact.html) or open an [Issue](https://github.com/sombrahq/sombra-cli/issues).
 
 MIT licensed. Made with ❤️ by [@yunier](https://www.linkedin.com/in/yunier-rojas-garc%C3%ADa/)
