@@ -83,6 +83,9 @@ func (copy *LocalCopyInteractor) LocalUpdate(target, uri, tag string) error {
 
 		// Execute the mappings
 		err = copy.copyFiles(repo.Dir(), filepath.Join(target, template.Path), tpl)
+		if err != nil {
+			return err
+		}
 
 		// Update the template configuration
 		template.Current = version
