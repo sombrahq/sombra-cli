@@ -104,6 +104,9 @@ func (diff *DirectoryLocalDiffInteractor) LocalUpdate(target, uri, tag string) e
 
 		// prepare the diff
 		err = diff.applyDiff(repo, filepath.Join(target, template.Path), tpl.Patterns, fromVersion, version)
+		if err != nil {
+			return err
+		}
 
 		// Update the template configuration
 		template.Current = version
