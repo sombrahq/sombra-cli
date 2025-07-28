@@ -25,7 +25,7 @@ Built for developers, consultants, and teams who want to:
 ### Option 1: via Go
 
 ```bash
-go install github.com/sombrahq/sombra-cli@latest
+go install github.com/sombrahq/sombra-cli/cmd/sombra@latest
 ```
 
 ### Option 2: Prebuilt Binaries

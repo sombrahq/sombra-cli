@@ -14,7 +14,7 @@ If you have Go 1.16+ installed, you can use:
 
 ```bash
 go install github.com/sombrahq/sombra-cli@latest
-````
+```
 
 > This places the `sombra` binary in `$(go env GOPATH)/bin`.
 > Make sure that directory is in your system `PATH`:
